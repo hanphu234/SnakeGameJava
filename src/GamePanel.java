@@ -50,11 +50,11 @@ public class GamePanel extends JPanel  implements ActionListener {
 
     public void draw(Graphics g) {
         if (running) {
-           /* //  draw line across game panel
+           /*   draw line across game panel
             for (int i = 0; i < SCREEN_HEIGHT / UNIT_SIZE; i++) {
                 g.drawLine(i * UNIT_SIZE, 0, i * UNIT_SIZE, SCREEN_HEIGHT);
                 g.drawLine(0, i * UNIT_SIZE, SCREEN_WIDTH, i * UNIT_SIZE);
-            }*/
+            } */
             //  red apples
             g.setColor(Color.red);
             g.fillOval(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
@@ -171,21 +171,25 @@ public class GamePanel extends JPanel  implements ActionListener {
         public void keyPressed(KeyEvent e) {
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_LEFT:
+                    // can not change snake's direction to "left" if the snake is going "right"
                     if (direction != 'R') {
                         direction = 'L';
                     }
                     break;
                 case KeyEvent.VK_RIGHT:
+                    // can not change snake's direction to "right" if the snake is going "left"
                     if (direction != 'L') {
                         direction = 'R';
                     }
                     break;
                 case KeyEvent.VK_UP:
+                    // can not change snake's direction to "up" if the snake is going "down"
                     if (direction != 'D') {
                         direction = 'U';
                     }
                     break;
                 case KeyEvent.VK_DOWN:
+                    // can not change snake's direction to "down" if the snake is going "up"
                     if (direction != 'U') {
                         direction = 'D';
                     }
